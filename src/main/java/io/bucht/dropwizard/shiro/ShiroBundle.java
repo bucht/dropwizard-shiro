@@ -49,9 +49,9 @@ public abstract class ShiroBundle<T> implements ConfiguredBundle<T> {
         };
     }
 
-    protected WebSecurityManager getWebSecurityManager(Collection<Realm> realms, WebEnvironment webEnv) {
+    protected WebSecurityManager getWebSecurityManager(Collection<Realm> realms, WebEnvironment env) {
         if (realms.isEmpty()) {
-            return webEnv.getWebSecurityManager();
+            return env.getWebSecurityManager();
         }
 
         return new DefaultWebSecurityManager(realms);
