@@ -6,7 +6,7 @@ Based on https://github.com/silb/dropwizard-shiro and rewritten and simplified t
 Defaults to check for configuration in "classpath:shiro.ini" and adds a filter with an url pattern of "/\*"
 
 # Use
-```
+```xml
 <dependency>
   <groupId>io.dropwizard</groupId>
   <artifactId>dropwizard-auth</artifactId>
@@ -22,7 +22,7 @@ Defaults to check for configuration in "classpath:shiro.ini" and adds a filter w
 
 Add bundle to application:
 
-```
+```java
 private final ShiroBundle<MyConfiguration> shiro = new ShiroBundle<>() {
 
     @Override
@@ -46,7 +46,7 @@ public void initialize(final Bootstrap<MyConfiguration> bootstrap) {
 
 Add support for injecting custom Principal and exception mapping for Shiro's AuthorizationException:
 
-```
+```java
 env.jersey().register(new AuthValueFactoryProvider.Binder<>(MyPrincipal.class));
 env.jersey().register(new MyAuthorizationExceptionMapper());
 
